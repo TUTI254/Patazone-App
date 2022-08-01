@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patazone/widgets/cart_items.dart';
 import 'package:patazone/widgets/categories.dart';
+import 'package:patazone/widgets/faq.dart';
 import 'package:patazone/widgets/feed.dart';
 import 'package:patazone/widgets/cart.dart';
 import 'package:patazone/widgets/inbox.dart';
 import 'package:patazone/widgets/order_detail.dart';
 import 'package:patazone/widgets/orders.dart';
 import 'package:patazone/widgets/patazone_xclusive.dart';
+import 'package:patazone/widgets/help.dart';
 import 'package:patazone/widgets/reviews_ratings.dart';
 import 'package:patazone/widgets/subCategory.dart';
 import 'package:patazone/widgets/subSubCategory.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               primarySwatch: Colors.red,
             ),
-              home: const ReviewsnRatings (),
+              home: const Categories(),
           );
         }
     );

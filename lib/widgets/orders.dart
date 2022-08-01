@@ -35,6 +35,7 @@ class _OrdersState extends State<Orders>{
                         padding: EdgeInsets.zero,
                         scrollDirection: Axis.vertical,
                         itemCount: 8,
+                        physics: NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index){
                           return Padding(
                             padding:  const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),

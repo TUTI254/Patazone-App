@@ -61,7 +61,7 @@ class _CartItemsState extends State<CartItems>{
           child: ListView.builder(
             shrinkWrap: true,
             padding: EdgeInsets.zero,
-            scrollDirection: Axis.vertical,
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: 8,
             itemBuilder: (context, index){
               return  Padding(
@@ -144,8 +144,8 @@ class _CartItemsState extends State<CartItems>{
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children:  const [
-                              Padding(
+                            children:   [
+                              const Padding(
                                 padding:  EdgeInsetsDirectional.fromSTEB( 0, 4, 0, 0),
                                 child: Icon(
                                   FontAwesomeIcons.minusCircle,
@@ -153,7 +153,7 @@ class _CartItemsState extends State<CartItems>{
                                   size: 24,
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding:  EdgeInsetsDirectional.fromSTEB( 2, 4, 2, 0),
                                 child: Text(
                                   '1',
@@ -165,7 +165,7 @@ class _CartItemsState extends State<CartItems>{
                                   ),
                                 ),
                               ),
-                              Padding(
+                              const Padding(
                                 padding:  EdgeInsetsDirectional.fromSTEB( 0, 4, 0, 0),
                                 child: Icon(
                                   FontAwesomeIcons.plusCircle,
@@ -173,12 +173,119 @@ class _CartItemsState extends State<CartItems>{
                                   size: 24,
                                 ),
                               ),
-                              Padding(
-                                padding:  EdgeInsetsDirectional.fromSTEB( 95, 4, 0, 0),
-                                child: Icon(
-                                  FontAwesomeIcons.trashAlt,
-                                  color: Color(0xFFFF3030),
-                                  size: 24,
+
+                              GestureDetector(
+                                onTap: (){
+                                  showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding:  EdgeInsetsDirectional.fromSTEB(15.sp, 0, 15.sp, 0),
+                                      child: Container(
+                                        width: 293.w,
+                                        height: 240.h,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFEEEEEE),
+                                          borderRadius: BorderRadius.circular(25),
+                                        ),
+                                        child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Row(
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: const [
+                                                    Padding(
+                                                        padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
+                                                        child: Text(
+                                                          'Remove from cart',
+                                                          style: TextStyle(
+                                                            fontFamily: 'Poppins',
+                                                            color: Color(0xFF3A3A3A),
+                                                            fontSize: 20,
+                                                          ),
+                                                        ),
+                                                    ),
+                                                    Padding(
+                                                      padding: EdgeInsetsDirectional.fromSTEB(15, 15, 0, 0),
+                                                      child: Icon(
+                                                        Icons.close_outlined,
+                                                        color: Colors.black,
+                                                        size: 30,
+                                                      ),
+                                                    ),
+                                                  ],
+                                              ),
+                                              const Padding(
+                                                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                                child: Text(
+                                                  'Do you really want to remove this\nitem from cart?',
+                                                  style: TextStyle(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFF3A3A3A),
+                                                    fontWeight: FontWeight.normal,
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:   EdgeInsetsDirectional.fromSTEB( 33.sp, 16.sp, 0, 0),
+                                                child: ElevatedButton(
+                                                  style: ButtonStyle(
+                                                      backgroundColor: MaterialStateProperty.all(const Color(0xffffFFFF)),
+                                                      foregroundColor: MaterialStateProperty.all(const Color(0xffff3030)),
+                                                      minimumSize: MaterialStateProperty.all(Size(130.w, 40.h)),
+                                                      textStyle: MaterialStateProperty.all( const TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                        FontWeight.w500,
+                                                      ),),
+                                                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius:  BorderRadius.circular(36),))
+                                                  ) ,
+
+                                                  child: const Text(
+                                                    'Save',
+                                                  ),
+
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:   EdgeInsetsDirectional.fromSTEB( 33.sp, 16.sp, 0, 0),
+                                                child: ElevatedButton(
+                                                  style: ButtonStyle(
+                                                      backgroundColor: MaterialStateProperty.all(const Color(0xffff3030)),
+                                                      foregroundColor: MaterialStateProperty.all(const Color(0xffffffff)),
+                                                      minimumSize: MaterialStateProperty.all(Size(130.w, 40.h)),
+                                                      textStyle: MaterialStateProperty.all(
+                                                        const TextStyle(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 18,
+                                                        fontWeight:
+                                                        FontWeight.w500,
+                                                      ),
+                                                      ),
+                                                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius:  BorderRadius.circular(36),))
+                                                  ) ,
+                                                  child: const Text(
+                                                    'Remove',
+                                                  ),
+
+                                                ),
+                                              ),
+                                            ],
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                  );
+                                },
+                                child: const Padding(
+                                  padding:  EdgeInsetsDirectional.fromSTEB( 95, 4, 0, 0),
+                                  child: Icon(
+                                    FontAwesomeIcons.trashAlt,
+                                    color: Color(0xFFFF3030),
+                                    size: 24,
+                                  ),
                                 ),
                               ),
                             ],

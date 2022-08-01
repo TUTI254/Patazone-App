@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:patazone/widgets/cart_items.dart';
 import 'package:patazone/widgets/empty_cart.dart';
 
 class Cart extends StatefulWidget {
@@ -24,7 +25,7 @@ class _CartState extends State<Cart>{
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    const EmptyCart(), //if cart is EmptyCart() use call empty widget else call CartItems() widget
+                    const CartItems(), //if cart is EmptyCart() use call empty widget else call CartItems() widget
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
